@@ -13,6 +13,7 @@ WebdriverIO-retry
 ## Difference with webdriverio
 
 This is considered as "customized webdriverio@4.14.2+retries per spec PR changes" due to the retry per spec isn't merged to v4 master.
+Reference [link](https://github.com/webdriverio/webdriverio/pull/2930) here.
 
 ## Description
 
