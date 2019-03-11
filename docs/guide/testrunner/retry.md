@@ -3,10 +3,10 @@ category: testrunner
 tags: guide
 index: 9
 title: WebdriverIO - Retry Flaky Tests
+
 ---
 
-Retry Flaky Tests
-=================
+# Retry Flaky Tests
 
 You can rerun certain tests with the WebdriverIO testrunner that turn out to be unstable due to e.g. flaky network or race conditions. However it is not recommended to just increase the rerun rate if tests become unstable.
 
@@ -19,11 +19,11 @@ describe('retries', function() {
     // Retry all tests in this suite up to 4 times
     this.retries(4);
 
-    beforeEach(function () {
+    beforeEach(function() {
         browser.url('http://www.yahoo.com');
     });
 
-    it('should succeed on the 3rd try', function () {
+    it('should succeed on the 3rd try', function() {
         // Specify this test to only retry up to 2 times
         this.retries(2);
         console.log('run');
@@ -37,11 +37,11 @@ describe('retries', function() {
 To rerun a certain test block just apply the number of reruns as last parameter after the test block function:
 
 ```js
-describe('my flaky app', function () {
+describe('my flaky app', function() {
     /**
      * spec that runs max 4 times (1 actual run + 3 reruns)
      */
-    it('should rerun a test at least 3 times', function () {
+    it('should rerun a test at least 3 times', function() {
         // ...
     }, 3);
 });
@@ -50,19 +50,19 @@ describe('my flaky app', function () {
 The same works for hooks too:
 
 ```js
-describe('my flaky app', function () {
+describe('my flaky app', function() {
     /**
      * hook that runs max 2 times (1 actual run + 1 rerun)
      */
-    beforeEach(function () {
+    beforeEach(function() {
         // ...
-    }, 1)
+    }, 1);
 
     // ...
 });
 ```
 
-It is __not__ possible to rerun whole suites with Jasmine, only hooks or test blocks. To use this you have to have the [wdio-mocha-framework](https://github.com/webdriverio/wdio-mocha-framework) adapter installed with `v0.3.0` or greater or the [wdio-jasmine-framework](https://github.com/webdriverio/wdio-jasmine-framework) adapter with `v0.2.0` or greater.
+It is **not** possible to rerun whole suites with Jasmine, only hooks or test blocks. To use this you have to have the [wdio-mocha-framework](https://github.com/webdriverio/wdio-mocha-framework) adapter installed with `v0.3.0` or greater or the [wdio-jasmine-framework](https://github.com/webdriverio/wdio-jasmine-framework) adapter with `v0.2.0` or greater.
 
 ## Rerun Step Definitions in Cucumber
 
@@ -80,3 +80,17 @@ module.exports = function () {
 ```
 
 Reruns can only be defined in your step definitions file and not in your feature file. To use this you have to have the [wdio-cucumber-framework](https://github.com/webdriverio/wdio-cucumber-framework) adapter installed with `v0.1.0` or greater.
+
+## Add retries on a per-specfile basis
+
+Previously only test-level and suite-level retries were available, which are fine in most cases. In any test which involves state, such as on a server or in a db, the state may be left invalid once the test fails the first time. Any subsequent retries may have no chance of passing due to the invalid state they would have to start with.
+A new browser instance is created for each specfile, which makes this an ideal place to hook and setup any other states (server, db). Retries on this level mean that the whole setup process will simply be repeated as if it were for a new specfile, with the results of the failing specfile (that is to be retried) being discarded.
+
+```js
+module.exports = function() {
+    /**
+     * The number of times to retry the entire specfile when it fails as a whole
+     */
+    specFileRetries: 1;
+};
+```

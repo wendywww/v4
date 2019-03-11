@@ -1,15 +1,15 @@
 {
-  "name": "webdriverio",
-  "description": "A Node.js bindings implementation for the W3C WebDriver protocol",
-  "version": "4.14.3",
+  "name": "webdriverio-retry",
+  "description": "customized webdriverio@4.14.2+retries per spec PR changes",
+  "version": "4.14.2",
   "homepage": "http://webdriver.io",
   "author": "Camilo Tapia <camilo.tapia@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git://github.com/webdriverio/webdriverio.git"
+    "url": "https://github.com/webdriverio-boneyard/v4"
   },
-  "bugs": {
-    "url": "https://github.com/webdriverio/webdriverio/issues"
+  "feature": {
+    "url": "https://github.com/webdriverio/webdriverio/pull/2930/files"
   },
   "license": "MIT",
   "main": "./build/index.js",
@@ -81,6 +81,7 @@
     "supports-color": "~5.0.0",
     "url": "~0.11.0",
     "wdio-dot-reporter": "~0.0.8",
+    "webdriverio-retry": "4.14.4",
     "wgxpath": "~1.0.0"
   },
   "devDependencies": {
