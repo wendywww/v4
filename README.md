@@ -1,18 +1,24 @@
 ![WebdriverIO](http://www.christian-bromann.com/wdio.png)
-WebdriverIO
+WebdriverIO-retry
 ===========
 
 [![Build Status](https://travis-ci.org/webdriverio/webdriverio.svg?branch=master)](https://travis-ci.org/webdriverio/webdriverio) [![NPM version](https://badge.fury.io/js/webdriverio.svg)](http://badge.fury.io/js/webdriverio) [![Dependency Status](https://www.versioneye.com/user/projects/58932ea4b166b50039982a32/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/58932ea4b166b50039982a32) [![npm](https://img.shields.io/npm/dm/webdriverio.svg?maxAge=2592000)]() [![Coveralls](https://img.shields.io/coveralls/webdriverio/webdriverio/master.svg?maxAge=2592000)]() [![Gitter](https://badges.gitter.im/webdriverio/webdriverio.svg)](https://gitter.im/webdriverio/webdriverio?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 <br><br>
 [![Selenium Test Status](https://saucelabs.com/browser-matrix/webdriverio.svg)](https://saucelabs.com/u/webdriverio)
 
-***
+---
 
 #### [Homepage](http://webdriver.io) | [Developer Guide](http://webdriver.io/guide.html) | [API Reference](http://webdriver.io/api.html) | [Contribute](http://webdriver.io/contribute.html)
 
+## Difference with webdriverio
+
+This is considered as "customized webdriverio@4.14.2+retries per spec PR changes" due to the retry per spec isn't merged to v4 master.
+
+## Description
+
 This library is a [Webdriver](https://w3c.github.io/webdriver/webdriver-spec.html)
 (browser automation) module for Node.JS. It makes it possible to write
-super easy [Selenium](https://en.wikipedia.org/wiki/Selenium_(software)) tests in your favorite
+super easy [Selenium](<https://en.wikipedia.org/wiki/Selenium_(software)>) tests in your favorite
 BDD/TDD test framework, that will run locally or in the cloud using Sauce Labs, BrowserStack or TestingBot.
 
 WebdriverIO is agnostic with regards to the test framework you want to use. Cucumber, Jasmine and Mocha+Chai
@@ -67,11 +73,11 @@ and significantly simpler than with [WD.js](https://github.com/admc/wd):
 
 ```js
 browser
-  .get("http://www.google.com")
-  .elementById('q')
-  .sendKeys('webdriver')
-  .elementById('btnG')
-  .click()
+    .get('http://www.google.com')
+    .elementById('q')
+    .sendKeys('webdriver')
+    .elementById('btnG')
+    .click();
 ```
 
 For more details on the comparison between WebdriverIO, selenium-webdriverjs and WD.js,
@@ -85,22 +91,20 @@ Twitter or just file an [issue](https://github.com/webdriverio/webdriverio/issue
 Also if you miss any feature, let us know so we can make WebdriverIO even better. For news or
 announcements check [@WebdriverIO](http://twitter.com/webdriverio) on Twitter.
 
-
 ## NPM Maintainers
 
 The [npm module](https://www.npmjs.com/package/webdriverio) for this library is maintained by:
 
-* [Christian Bromann](https://github.com/christian-bromann)
-* [George Crawford](https://github.com/georgecrawford)
-* [Vincent Voyer](https://github.com/vvo)
-* [Camilo Tapia](http://github.com/Camme)
+-   [Christian Bromann](https://github.com/christian-bromann)
+-   [George Crawford](https://github.com/georgecrawford)
+-   [Vincent Voyer](https://github.com/vvo)
+-   [Camilo Tapia](http://github.com/Camme)
 
 ## History
 
 WebdriverIO was originated by [Camilo Tapia's](https://github.com/camme) initial
 Selenium project called WebdriverJS, which was the first webdriver project on NPM.
 In 2014, the project was renamed WebdriverIO later on.
-
 
 ### License
 
