@@ -1,7 +1,7 @@
 {
   "name": "webdriverio-retry",
-  "description": "customized webdriverio@4.14.2+retries per spec PR changes",
-  "version": "4.14.2",
+  "description": "customized webdriverio@4.14.4+retries per spec PR changes+w3c element fix",
+  "version": "4.14.21",
   "homepage": "http://webdriver.io",
   "author": "Camilo Tapia <camilo.tapia@gmail.com>",
   "repository": {
