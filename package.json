@@ -1,7 +1,7 @@
 {
   "name": "webdriverio-retry",
   "description": "customized webdriverio@4.14.4+retries per spec PR changes+w3c element fix",
-  "version": "4.14.21",
+  "version": "4.14.25",
   "homepage": "http://webdriver.io",
   "author": "Camilo Tapia <camilo.tapia@gmail.com>",
   "repository": {
@@ -39,6 +39,7 @@
     "copy:packagejson": "cpx package.json build",
     "copy:ejstemplate": "cpx lib/helpers/wdio.conf.ejs build/lib/helpers/",
     "eslint": "eslint ./lib test/",
+    "rimraf": "./node_modules/rimraf/bin.js",
     "release": "np patch",
     "release:patch": "np patch",
     "release:minor": "np minor",
@@ -116,7 +117,7 @@
     "nock": "^9.0.13",
     "node-static": "^0.7.9",
     "np": "^2.16.0",
-    "npm-run-all": "^4.0.2",
+    "npm-run-all": "^4.1.5",
     "rimraf": "^2.6.2",
     "sauce-connect-launcher": "^1.2.1",
     "saucelabs": "^1.4.0",

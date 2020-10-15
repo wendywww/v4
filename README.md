@@ -12,7 +12,10 @@ WebdriverIO-retry
 
 ## Difference with webdriverio
 
-This is considered as "customized webdriverio@4.14.2+retries per spec PR changes" due to the retry per spec isn't merged to v4 master.
+This is considered as "customized webdriverio@4.14.4+retries per spec PR changes with w3c element locators [link here](https://github.com/ServiceMax-Engineering/wdio_v4/commits/master) due to the retry per spec isn't merged to v4 master.
+
+The `[W3C_ELEMENT_ID]: el.ELEMENT` allows the browser.keys to work with newer Chrome versions.
+
 Reference [link](https://github.com/webdriverio/webdriverio/pull/2930) here.
 
 ## Description
@@ -57,27 +60,27 @@ With all that done, have a look at the many [examples](examples/).
 ## Syntax example
 
 ```js
-browser.url('http://google.com');
-$('#q').setValue('webdriver');
-$('#btnG').click();
+browser.url("http://google.com");
+$("#q").setValue("webdriver");
+$("#btnG").click();
 ```
 
 Notice how this is far simpler than with the original [selenium-webdriverjs](https://github.com/SeleniumHQ/selenium/wiki/WebDriverJs),
 
 ```js
-driver.get('http://www.google.com');
-driver.findElement(webdriver.By.id('q')).sendKeys('webdriver');
-driver.findElement(webdriver.By.id('btnG')).click();
+driver.get("http://www.google.com");
+driver.findElement(webdriver.By.id("q")).sendKeys("webdriver");
+driver.findElement(webdriver.By.id("btnG")).click();
 ```
 
 and significantly simpler than with [WD.js](https://github.com/admc/wd):
 
 ```js
 browser
-    .get('http://www.google.com')
-    .elementById('q')
-    .sendKeys('webdriver')
-    .elementById('btnG')
+    .get("http://www.google.com")
+    .elementById("q")
+    .sendKeys("webdriver")
+    .elementById("btnG")
     .click();
 ```
 
